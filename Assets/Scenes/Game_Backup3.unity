@@ -16824,6 +16824,7 @@ MonoBehaviour:
   songStarted: 0
   subtitleDisplayer: {fileID: 0}
   usingSubtitles: 0
+  test: {fileID: 0}
 --- !u!114 &578016969
 MonoBehaviour:
   m_ObjectHideFlags: 0

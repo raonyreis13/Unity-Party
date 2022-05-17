@@ -11559,6 +11559,7 @@ GameObject:
   - component: {fileID: 492097974}
   - component: {fileID: 492097973}
   - component: {fileID: 492097972}
+  - component: {fileID: 492097975}
   m_Layer: 0
   m_Name: Dad
   m_TagString: Untagged
@@ -11650,6 +11651,20 @@ Transform:
   m_Father: {fileID: 1656911397}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &492097975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492097971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f68ed8ddcd58d140a37806eca2b5694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteAnimations: []
+  playAutomatically: 1
 --- !u!1 &493414688
 GameObject:
   m_ObjectHideFlags: 0
@@ -13585,8 +13600,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 60ff092ce5223124785fc66d0f0d9b19, type: 3}
   - {fileID: 8300000, guid: 17895d3bab486c94cafb8410a8ea8069, type: 3}
   hasVoiceLoaded: 0
-  liteMode: 1
-  hasStarted: 0
+  songSetupDone: 0
+  defaultSceneObjects: []
   ratingObject: {fileID: 5479695684151146615, guid: d9ffd2b7d1889e44e94bcf92837e7468,
     type: 3}
   liteRatingObjectP1: {fileID: 660504055}
@@ -13595,8 +13610,16 @@ MonoBehaviour:
   goodSprite: {fileID: 21300000, guid: d61b0bafa48c55449b37ca7f0306e429, type: 3}
   badSprite: {fileID: 21300000, guid: cb6d26a42763310409689ddde18f502f, type: 3}
   shitSprite: {fileID: 21300000, guid: 2ef6ff551db3de548820bd22806419fe, type: 3}
+  playerOneScoringObject: {fileID: 0}
   playerOneScoringText: {fileID: 343513145}
+  playerOneCornerImage: {fileID: 0}
+  playerOneComboText: {fileID: 0}
+  playerOneScoreLerpSpeed: 0
+  playerTwoScoringObject: {fileID: 0}
   playerTwoScoringText: {fileID: 1060626215}
+  playerTwoCornerImage: {fileID: 0}
+  playerTwoComboText: {fileID: 0}
+  playerTwoScoreLerpSpeed: 0
   ratingLayerTimer: 2.2
   playerOneStats:
     highestCombo: 0
@@ -13682,6 +13705,12 @@ MonoBehaviour:
   holdNote: {fileID: 1433258594022969257, guid: 2c9dd4b277ef4e44db3f35ca6557c89d,
     type: 3}
   holdNoteEnd: {fileID: 21300000, guid: 55ce8caa81635024a8ab46c3c0ef2ee1, type: 3}
+  holdNoteSprite: {fileID: 0}
+  leftNotesPool: {fileID: 0}
+  rightNotesPool: {fileID: 0}
+  downNotesPool: {fileID: 0}
+  upNotesPool: {fileID: 0}
+  holdNotesPool: {fileID: 0}
   characterNames:
   - dad
   - pico
@@ -13728,15 +13757,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dc80853d4908d1640bb2a9c4b090431f, type: 2}
   - {fileID: 11400000, guid: eb2f0594defde7a478bcf26831055927, type: 2}
   - {fileID: 11400000, guid: dd11264c0d9da8542a032ed33c60b032, type: 2}
+  defaultEnemy: {fileID: 0}
   girlfriendObject: {fileID: 1846954269}
-  enemyObj: {fileID: 492097971}
+  girlfriendAnimator: {fileID: 0}
+  altDance: 0
+  opponentObject: {fileID: 492097971}
   enemy: {fileID: 11400000, guid: 4a2e2fd275eca8b42ae438869101dc28, type: 2}
   enemyName: Dad
-  enemyAnimation: {fileID: 492097972}
+  opponentAnimator: {fileID: 492097975}
   enemyIdleTimer: 0.7
   enemyNoteTimer: 0.15
-  bfObj: {fileID: 1195438609}
-  boyfriendAnimation: {fileID: 1195438610}
+  boyfriendObject: {fileID: 1195438609}
+  boyfriendAnimator: {fileID: 1195438613}
   boyfriendIdleTimer: 0.7
   boyfriendPortraitNormal: {fileID: -5575879444544130978, guid: 63ff7a8f4a595fc428a7f64fb71ccd9c,
     type: 3}
@@ -13751,6 +13783,10 @@ MonoBehaviour:
   enemyHealthIconRect: {fileID: 517245161}
   enemyHealthIcon: {fileID: 517245162}
   enemyHealthBar: {fileID: 1477753807}
+  songDurationObject: {fileID: 0}
+  songDurationText: {fileID: 0}
+  songDurationBar: {fileID: 0}
+  startSongTooltip: {fileID: 0}
   lastNote: {fileID: 0}
   stepCrochet: 0
   beatsPerSecond: 0
@@ -13774,39 +13810,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a90b429eaebcedd4fa40d7209f2100f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeScreen: {fileID: 1828706269}
-  testVoices: {fileID: 8300000, guid: c8cb7b7b1721c0648ae0fa3b488edb68, type: 3}
-  testInst: {fileID: 8300000, guid: 0c55f088d62d6f14593fef77b8ae6d54, type: 3}
-  testData: 
-  voiceVolumeSlider: {fileID: 149287703}
-  instVolumeSlider: {fileID: 1498251395}
-  oopsVolumeSlider: {fileID: 1659849296}
-  completedVolumeSlider: {fileID: 1164228370}
-  menuVolumeSlider: {fileID: 401658379}
-  saveTooltip: {fileID: 0}
-  isTesting: 0
-  primaryLeftKeybindText: {fileID: 487436625}
-  primaryDownKeybindText: {fileID: 1412098335}
-  primaryUpKeybindText: {fileID: 1595225518}
-  primaryRightKeybindText: {fileID: 659383790}
-  secondaryLeftKeybindText: {fileID: 867962299}
-  secondaryDownKeybindText: {fileID: 1756943876}
-  secondaryUpKeybindText: {fileID: 862275753}
-  secondaryRightKeybindText: {fileID: 74152367}
-  pauseKeybindText: {fileID: 1374202286}
-  resetKeybindText: {fileID: 162440158}
-  colorPickers:
-  - {fileID: 1769837225}
-  - {fileID: 131881620}
-  - {fileID: 1620940634}
-  - {fileID: 1409593081}
-  colorFields:
-  - {fileID: 312694036}
-  - {fileID: 913012143}
-  - {fileID: 1473753985}
-  - {fileID: 2106037963}
-  customizeNotesScreen: {fileID: 231480740}
-  mainOptionsScreen: {fileID: 457233613}
 --- !u!114 &578016969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13820,14 +13823,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   safeFrames: 10
-  leftNote: {fileID: 0}
-  downNote: {fileID: 0}
-  upNote: {fileID: 0}
-  rightNote: {fileID: 0}
-  secLeftNote: {fileID: 0}
-  secDownNote: {fileID: 0}
-  secUpNote: {fileID: 0}
-  secRightNote: {fileID: 0}
+  player1DummyNotes: []
+  player2DummyNotes: []
 --- !u!114 &578016970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29677,6 +29674,7 @@ GameObject:
   - component: {fileID: 1195438612}
   - component: {fileID: 1195438611}
   - component: {fileID: 1195438610}
+  - component: {fileID: 1195438613}
   m_Layer: 0
   m_Name: Boyfriend
   m_TagString: Untagged
@@ -29768,6 +29766,20 @@ Transform:
   m_Father: {fileID: 513311229}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1195438613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195438609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f68ed8ddcd58d140a37806eca2b5694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteAnimations: []
+  playAutomatically: 1
 --- !u!1 &1215265848
 GameObject:
   m_ObjectHideFlags: 0

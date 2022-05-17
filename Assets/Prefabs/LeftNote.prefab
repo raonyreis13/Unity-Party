@@ -51,6 +51,13 @@ MonoBehaviour:
   dummyNote: 1
   lastSusNote: 0
   layer: 0
+  isAlt: 0
+  currentStrumTime: 0
+  currentStopwatch: 0
+  normal:
+  - {fileID: 21300000, guid: 2f63e6cf0e5f6164e824cf36bfbbeccb, type: 3}
+  - {fileID: 21300000, guid: 2588b3ae1f2631349b92530db7c4cabe, type: 3}
+  - {fileID: 21300000, guid: b05bda7f02267f64a8bcaae27ed74e09, type: 3}
   susLength: 0
 --- !u!1 &1460273725769948940
 GameObject:
@@ -98,6 +105,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
